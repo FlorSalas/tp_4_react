@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import iniciaSesion from "./funcion-login";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [nombre, setNombre]= useState("");
+  const [contraseña, setContraseña]= useState("");
+
+    const guardarNombre= (e)=>{
+        setNombre(e.target.value);
+        console.log(nombre);
+        
+    };
+
+    const guardarContraseña=(e)=>{
+        setContraseña(e.target.value);
+        console.log(contraseña);
+    };
+
+    const guardarDatos=()=>{
+      setNombre(nombre);
+      console.log(nombre);
+      setContraseña(contraseña);
+      console.log(contraseña);
+    };
+
+    
+    return (
+        <div id="visible" className="visible">
+          <button>SignIn</button>
+          <button onClick={iniciaSesion}>LogIn</button>
+          <br />
+          <input
+            placeholder="Usuario Nuevo"
+            onChange={(e)=> guardarNombre(e)}
+            value={nombre}
+          />
+           
+          <br />
+          <input
+            placeholder="Contraseña Nueva"
+            onChange={(e)=> guardarContraseña(e)}
+            value={contraseña}
+          />
+          <br />
+          <button onClick={guardarDatos}>Crear Usuario</button>
+        </div>
+      );
+
 }
+
+
 
 export default App;
