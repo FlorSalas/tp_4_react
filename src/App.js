@@ -19,16 +19,17 @@ function App() {
 
     const guardarDatos=()=>{
       setNombre(nombre);
-      console.log(nombre);
+      localStorage.setItem('nombreUsuario', nombre);
       setContraseña(contraseña);
-      console.log(contraseña);
+      localStorage.setItem('contraseñaUsuario', contraseña);
     };
 
     
     return (
         <div id="visible" className="visible">
           <button>SignIn</button>
-          <button onClick={iniciaSesion}>LogIn</button>
+          <button 
+          onClick= {()=>iniciaSesion()}>LogIn</button>
           <br />
           <input
             placeholder="Usuario Nuevo"
@@ -49,6 +50,9 @@ function App() {
 
 }
 
+function datoscoinciden(){
+  
+};
 
 
-export default App;
+export default App ;
